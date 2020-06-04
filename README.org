@@ -1,0 +1,4 @@
+#+TITLE: Readme
+
+
+* a simple prompt theme for zsh
