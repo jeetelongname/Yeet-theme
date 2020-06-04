@@ -1,7 +1,7 @@
 
 setopt promptsubst
 
-source ${0:A:h}/lib/*
+source ${0:A:h}/lib/*.zsh 
 
 autoload -U add-zsh-hook
 
