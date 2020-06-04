@@ -1,6 +1,8 @@
 
 setopt promptsubst
 
+source ${0:A:h}/lib/*
+
 autoload -U add-zsh-hook
 
 PROMPT_SUCCESS_COLOR=$FG[117]
