@@ -1,7 +1,21 @@
+#                     __
+#    __  _____  ___  / /______
+#   / / / / _ \/ _ \/ __/ ___/
+#  / /_/ /  __/  __/ /_(__  )
+#  \__, /\___/\___/\__/____/
+# /____/
+#                     _____
+#   _________  ____  / __(_)___ _
+#  / ___/ __ \/ __ \/ /_/ / __ `/
+# / /__/ /_/ / / / / __/ / /_/ /
+# \___/\____/_/ /_/_/ /_/\__, /
+#                       /____/
+#                       for his zsh theme
+#this is a simple prompt for the zsh theme it presents git info using trendy little symbols and gives you the return code
+#hopefull it is written well (as most of it is based on muse from zsh) i will now proceed to coment what parts do
 
-setopt promptsubst
-
-
+setopt promptsubst 
+autoload -U colors && colors
 autoload -U add-zsh-hook
 
 PROMPT_SUCCESS_COLOR=$FG[117]
@@ -13,8 +27,7 @@ GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
 
-
-ZSH_THEME_GIT_PROMPT_PREFIX="git("
+ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$GIT_DIRTY_COLOR%}⚡"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$GIT_CLEAN_COLOR%}✔"
