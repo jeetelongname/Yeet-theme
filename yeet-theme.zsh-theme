@@ -20,8 +20,8 @@ autoload -U colors && colors
 autoload -U add-zsh-hook
 
 function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    VIM_PROMPT="%{$fg_bold[yellow]%} <% N>%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}${return_code} ${dir} $EPS1"
     zle reset-prompt
 }
 
@@ -54,10 +54,11 @@ ZSH_THEME_VIRTUALENV_PREFIX=" ["
 ZSH_THEME_VIRTUALENV_SUFFIX="]"
 
 local prompt_git='%{$GIT_PROMPT_INFO%}$(git_prompt_info)$(virtualenv_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}'
-local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local prefix='%{$PROMPT_SUCCESS_COLOR%}%m:'
 local suffix='%{$PROMPT_PROMPT%}ᐅ '
+
 local dir='%{$PROMPT_SUCCESS_COLOR%}%~%'
+local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 
 PROMPT="${prefix}${prompt_git}${suffix}%{$reset_color%}"
 RPROMPT="${return_code} ${dir}"
