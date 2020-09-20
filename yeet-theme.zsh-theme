@@ -60,8 +60,8 @@ ZSH_THEME_VIRTUALENV_PREFIX=" ["
 ZSH_THEME_VIRTUALENV_SUFFIX="]"
 
 local prompt_git='%{$GIT_PROMPT_INFO%}$(git_prompt_info)$(virtualenv_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}'
-local prefix='%{$PROMPT_SUCCESS_COLOR%}%m:'
-local suffix='%{$PROMPT_PROMPT%}ᐅ '
+local prefix='%{$PROMPT_SUCCESS_COLOR%}%m:%W'
+local suffix="%{$PROMPT_PROMPT%}ᐅ %{$reset_color%}"
 
 PROMPT="${prefix}${prompt_git}${suffix}%{$reset_color%}"
 
