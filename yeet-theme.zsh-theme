@@ -18,6 +18,11 @@
 setopt promptsubst 
 autoload -U colors && colors
 autoload -U add-zsh-hook
+## sourceing the lib
+source ${0:A:h}/lib/prompt_info_functions.zsh
+source ${0:A:h}/lib/git.zsh
+source ${0:A:h}/lib/theme-and-appearance.zsh
+source ${0:A:h}/lib/spectrum.zsh
 
 function zle-line-init zle-keymap-select { ## this function makes my right prompt. it gives me a vi normal mode indicator and also sets up a return code and a dir..printer??
     local dir='%{$PROMPT_SUCCESS_COLOR%}%~%'
@@ -37,7 +42,6 @@ GIT_DIRTY_COLOR=$FG[133]
 GIT_CLEAN_COLOR=$FG[118]
 GIT_PROMPT_INFO=$FG[012]
 #----there are not more colours}
-
 ZSH_THEME_GIT_PROMPT_PREFIX="("
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})" 
 
