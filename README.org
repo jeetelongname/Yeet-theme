@@ -1,1 +1,13 @@
 #+TITLE: a simple prompt theme for zsh
+
+[[file:assets/prompt-no-git.png]]
+no git is above
+[[file:assets/prompt-with-git.png]]
+then there is a little git info, it will show that a repo has untracked,
+modified, staged and, unpushed (as well as other stuff I have forgotten)
+
+#+begin_quote
+This is very much still a personal prompt so I may rewrite it on a wim, You have
+been warned!
+#+end_quote
+
