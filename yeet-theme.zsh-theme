@@ -24,14 +24,6 @@ source ${0:A:h}/lib/git.zsh
 source ${0:A:h}/lib/theme-and-appearance.zsh
 source ${0:A:h}/lib/spectrum.zsh
 
-function zle-line-init zle-keymap-select { ## this function makes my right prompt. it gives me a vi normal mode indicator and also sets up a return code and a dir..printer??
-    local dir='%{$PROMPT_SUCCESS_COLOR%}%~%'
-    local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
-
-    VIM_PROMPT="%{$fg_bold[yellow]%} <% N>%  %{$reset_color%}"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} ${return_code} ${dir} $EPS1"
-    zle reset-prompt
-}
 #--------------------{colours
 PROMPT_SUCCESS_COLOR=$FG[117]
 PROMPT_FAILURE_COLOR=$FG[124]
@@ -63,9 +55,18 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[blue]%} ↑%{$reset_color%}"
 ZSH_THEME_VIRTUALENV_PREFIX=" ["
 ZSH_THEME_VIRTUALENV_SUFFIX="]"
 
+function zle-line-init zle-keymap-select { ## this function makes my right prompt. it gives me a vi normal mode indicator and also sets up a return code and a dir..printer??
+    local dir='%{$PROMPT_SUCCESS_COLOR%}%~%'
+    local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
+
+    VIM_PROMPT="%{$fg_bold[yellow]%} <% N>%  %{$reset_color%}"
+    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} ${return_code} ${dir} $EPS1"
+    zle reset-prompt
+}
+
 local prompt_git='%{$GIT_PROMPT_INFO%}$(git_prompt_info)$(virtualenv_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}'
 local prefix="%{$PROMPT_SUCCESS_COLOR%}%m:(%U%w%u)"
-local suffix="%{$PROMPT_PROMPT%}λ  %{$reset_color%}"
+local suffix="%{$PROMPT_PROMPT%}ᐅ %{$reset_color%}"
 
 PROMPT="${prefix}${prompt_git}${suffix}%{$reset_color%}"
 
